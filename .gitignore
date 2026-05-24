@@ -8,7 +8,32 @@ wheels/
 
 # Virtual environments
 .venv
-results
+
 *.pdf
-*.xlsx
+review_polarity
 .DS_Store
+
+# Ignore all auxiliary latex files
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.xml
+
+# Ignore general files
+*.pdf
+*.csv
+*.xlsx
+*.png
+*.jpg
+*.JPG
+
+images

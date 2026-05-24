@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem} 
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{float} % for [H]
+\usepackage{geometry}
+\usepackage{csquotes}           % Recommended for biblatex
+\usepackage[style=ieee,backend=biber]{biblatex} % APA-like citations
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Set page margins
+\geometry{margin=1in}
+
+% Line spacing
+\usepackage{setspace}
+
+\usepackage{titling}
+\setlength{\droptitle}{-2cm}   % move title up (adjust value if needed)
+
+% Bibliography file
+\addbibresource{references.bib}
+
+% Optional: section files
+\usepackage{import}
+
+% Hyperlinks for references and TOC
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+\title{Statistical Learning Assignment 2}
+\author{
+    Vishal Bhaga\\
+    u20470194\\
+    MIT 801\\
+    \href{https://github.com/vbhaga89/MIT801_SL_Assignment2}{GitHub Repository}
+}
+\date{\today}
+
+\setlength{\parskip}{10pt}
+
+\begin{document}
+
+\onehalfspacing
+
+\maketitle
+
+% Section A
+\import{sections/}{question1.tex}
+
+\newpage
+
+% Section B
+\import{sections/}{question2.tex}
+
+\newpage
+
+% References
+\printbibliography
+
+\end{document}

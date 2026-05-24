@@ -1,0 +1,50 @@
+\section{Question 1}
+
+\begin{enumerate}
+    \item Bootstrap resampling was used on the training data from the \emph{insurance.xlsx} dataset provided in assignment 1 question 1. This was done to estimate the uncertainty of the
+          model intercept. This was done on both the linear regression model and the logistic regression model used in assignment 1 question 1. This process was done by firstly using
+          the same preprocessing pipeline and model setup that was used in that question. Thereafter, a loop of a 1000 iterations was setup in which the model was fit on training data
+          that was resampled with replacement using the \emph{resample} method from scikit-learn (bootstrapping). To ensure variability, the random\_state parameter was set to the current
+          iteration number in the \emph{resample} method. After the model was trained, the intercept value was obtained from the model and stored. To develop a 95\% confidence
+          interval of the intercept of each model, the 2.5\% and 97.5\% percentiles were obtained of the generated bootstrap distribution of the intercept. This can be done since the
+          distribution mimics how the actual statistic would behave if you had pulled completely new samples in a real world scenario. The results can be seen below in 
+          Figure \ref{fig:bootstrap_linear} and Figure \ref{fig:bootstrap_logistic}:
+
+          \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.55\textwidth]{images/bootstrap_linear.png}
+            \caption{Bootstrap Distribution of the Linear Regression Model Intercept}
+            \label{fig:bootstrap_linear}
+          \end{figure}
+
+          \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.55\textwidth]{images/bootstrap_logistic.png}
+            \caption{Bootstrap Distribution of the Logistic Regression Model Intercept}
+            \label{fig:bootstrap_logistic}
+          \end{figure}
+
+    \item Thereafter, the intervals from question 1.1 was used to test the hypothesis that the intercept is equal to 0. At a 5\% significance level, one can use the 95\% bootstrap
+          confidence interval since this is a two-sided test. The following hypothesis test was setup:
+
+          Null Hypothesis:
+          \[H_0: \beta_0 = 0\]
+
+          Alternative Hypothesis:
+          \[H_1: \beta_0 \neq 0\]
+
+          The rule:
+          \[\text{Reject H$_0$ if 0} \notin CI_{95\%}\]
+          \[\text{Fail to reject H$_0$ if 0} \in CI_{95\%}\]
+
+          Based on this setup, one would reject the null hypothesis if 0 does not lie within the 95\% confidence interval.
+
+          From Figure \ref{fig:bootstrap_linear}, the 95\% bootstrap confidence interval of the Linear Regression model's intercept is [-0.2419, 0.3503]. Based on this, 0 lies
+          within the lower and upper bounds of this interval. Therefore, we fail to reject H$_0$ at a 5\% significance level. Thus, there is insufficient evidence to conclude
+          that the Linear Regression model's intercept is significantly different from 0.
+
+          From Figure \ref{fig:bootstrap_logistic}, the 95\% bootstrap confidence interval of the Logistic Regression model's intercept is [-0.8130, -0.7100]. Based on this, 
+          0 does not lie within the lower and upper bounds of this interval. Therefore, we reject H$_0$ at a 5\% significance level. Thus, there is sufficient evidence to conclude
+          that the Logistic Regression model's intercept is significantly different from 0.
+
+\end{enumerate}
