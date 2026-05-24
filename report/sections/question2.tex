@@ -1,1 +1,108 @@
 \section{Question 2}
+
+\begin{enumerate}
+    \item Mode1.xlsx
+    
+        \begin{enumerate}[label=\alph*)]
+            \item Since the \emph{Mode1.xlsx} data is one-dimensional, the best way to represent the data to determine the appropriate number of clusters would be by creating a histogram.
+                  Figure \ref{fig:mode1_input} illustrates the histogram created using the input data with a bin size of 50:
+
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.55\textwidth]{images/mode1_input.png}
+                    \caption{Histogram of the Mode1.xlsx data}
+                    \label{fig:mode1_input}
+                \end{figure}
+
+                From Figure \ref{fig:mode1_input}, one could argue that four clusters can be seen. The clusters would be around X = 70, X = 110, X = 150, X = 200.
+                \\
+            \item The results of the suspected number of clusters that was obtained from Figure \ref{fig:mode1_input} was then used to find a range of clusters that should be
+                  tested in order to find the best Gaussian Mixture Model (GMM) that can be fit to the data. Since it looked as if four clusters would be sufficient, a range of 1 - 8
+                  clusters were tested. For Gaussian Mixture Models, the best way to determine the appropriate number of clusters is by finding a model that minimises a 
+                  theoretical information criterion. This is done because methods such as inertia or the silhouette score (used for K-Means) cannot be used because they are not
+                  reliable when clusters have different sizes or are not spherical \parencite{geron2019hands}. For Gaussian Mixture Models, the Bayesian Information Criterion (BIC) and the Akaike Information
+                  Criterion (AIC) are used. Both the BIC and AIC penalise models that have more parameters to learn (eg. more clusters) and reward models that fit the data well. They 
+                  generally end up selecting the same model however, when they differ, a model selected by BIC will be preferred over a model selected by AIC. The main reason is because
+                  BIC penalises overly complex models more strongly \parencite{geron2019hands}. To determine the best number of clusters, a GMM was created for each cluster 
+                  size in the range 1 - 8 using scikit-learn's \emph{GaussianMixture} method. Thereafter, each model was fit using the input data and then the BIC and AIC for 
+                  each model was calculated. The results obtained can be seen in Figure \ref{fig:mode1_bicaic}:
+
+                  \newpage
+
+                  \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.65\textwidth]{images/mode1_bicaic.png}
+                    \caption{AIC and BIC Scores for the Gaussian Mixture Models on the Mode1.xlsx data}
+                    \label{fig:mode1_bicaic}
+                  \end{figure}
+
+                  Based on the results obtained from Figure \ref{fig:mode1_bicaic}, it can clearly be seen how both scores penalise overly complex models. This is seen by the increasing
+                  scores as the number of clusters increase. It is also evident that BIC penalises overly complex models way more than AIC hence why it is generally preferred when the two
+                  scores differ. 
+                  
+                  In addition, the results also show that 2 clusters may seem sufficient. However, since at 2 and 3 clusters the BIC scores are almost identical, the AIC score was 
+                  used as a tie-breaker. Based on that, 3 clusters were decided as the optimal number of clusters since the AIC score is significantly lower when compared to its score 
+                  at 2 clusters. Hence, 3 clusters would create the best model that has the best balance between model complexity and the ability to fit the data well.
+                \\
+            \item Based on the results from question  2.1) b, the GMM created and fit on the data using 3 clusters was used to classify the data. Figure \ref{fig:mode1_final} illustrates the results
+                  which were overlayed over the initial histogram (Figure \ref{fig:mode1_input}):
+
+                  \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.65\textwidth]{images/mode1_final.png}
+                    \caption{Results of the Gaussian Mixture Model using 3 Clusters on the Mode1.xlsx data}
+                    \label{fig:mode1_final}
+                  \end{figure}
+
+                  From Figure \ref{fig:mode1_final}, the clustered data can be seen at the bottom of the graph. This represents each data point with its colour representing the cluster
+                  the data point belongs to. In addition, the individual Gaussian components and overall fitted Gaussian mixture can be seen by the dotted line curves and solid line curve
+                  respectively.
+
+        \end{enumerate}
+        
+    \item Mode2.xlsx
+    
+        \begin{enumerate}[label=\alph*)]
+            \item Since the \emph{Mode2.xlsx} data is two-dimensional, the best way to represent the data to determine the appropriate number of clusters would be by creating a scatter plot.
+                  Figure \ref{fig:mode2_input} illustrates the scatter plot created using the input data:
+
+                  \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.45\textwidth]{images/mode2_input.png}
+                    \caption{Scatter Plot of the Mode2.xlsx data}
+                    \label{fig:mode2_input}
+                  \end{figure}
+
+                From Figure \ref{fig:mode2_input}, one could argue that three clusters can be seen. The clusters' centers would be around X = (100, 100), X = (100, 200) and X = (150, 150).
+                \\
+
+            \item Applying the same reasoning used for question 2.1) b, the initial assumption of 3 clusters (Figure \ref{fig:mode2_input}) was used to identify a range of 1 - 6 clusters to test.
+                  The same two scores, BIC and AIC, were also used to determine the number of clusters that would produce the best model. The results of the BIC and AIC scores can be seen in 
+                  Figure \ref{fig:mode2_bicaic}:
+
+                  \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.55\textwidth]{images/mode2_bicaic.png}
+                    \caption{AIC and BIC Scores for the Gaussian Mixture Models on the Mode2.xlsx data}
+                    \label{fig:mode2_bicaic}
+                  \end{figure}
+
+                  From Figure \ref{fig:mode2_bicaic}, it can be seen that the lowest for both scores are when the number of clusters are 3. Therefore, a GMM using 3 clusters
+                  for this data represents a model that balances complexity and the model's ability to fit the data well.
+                \\
+            \item Using the results obtained from question 2.2) b, the GMM created using 3 clusters was used to classify the data. The results can be seen in Figure \ref{fig:mode2_final}:
+                  
+                  \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.65\textwidth]{images/mode2_final.png}
+                    \caption{Results of the Gaussian Mixture Model using 3 Clusters on the Mode2.xlsx data}
+                    \label{fig:mode2_final}
+                  \end{figure}
+
+                  In Figure \ref{fig:mode2_final}, the 3 clusters can be seen by the coloured data points shown on the 2D grid. In addition, the density contour of the GMM is also
+                  overlayed.
+
+    
+        \end{enumerate}
+
+\end{enumerate}
