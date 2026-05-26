@@ -58,6 +58,31 @@
                   the data point belongs to. In addition, the individual Gaussian components and overall fitted Gaussian mixture can be seen by the dotted line curves and solid line curve
                   respectively.
 
+                  In addition to the results seen in Figure \ref{fig:mode1_final}, Table \ref{tab:mode1_summary} provides more details about each cluster:
+
+                  \begin{table}[htbp]
+                  \centering
+                  \caption{Summary Statistics by Cluster}
+                  \label{tab:mode1_summary}
+                  \begin{tabular}{c|rrrrr}
+                  \hline
+                  \textbf{Cluster} & \textbf{Count} & \textbf{Mean} & \textbf{Std} & \textbf{Min} & \textbf{Max} \\
+                  \hline
+                  1 & 617 & 99.565818  & 18.042669 & 30.938  & 127.311 \\
+                  2 & 420 & 150.663121 & 13.204376 & 127.923 & 173.852 \\
+                  3 & 463 & 202.098177 & 17.521059 & 173.945 & 259.269 \\
+                  \hline
+                  \end{tabular}
+                  \end{table}
+
+                  From both Figure \ref{fig:mode1_final} and Table \ref{tab:mode1_summary}, it can be seen that cluster 1 is the biggest, then cluster 2 and lastly cluster 3. Cluster 1
+                  is roughly centred at X = 100 ranging from a minimum of X = 30.94 to a maximum of X = 127.31. It has an average value of X = 99.565 and also the largest 
+                  variance of data with a standard deviation of 18.04 which can be visually seen by the greatest spread in Figure \ref{fig:mode1_final}. Next, Cluster 2 is 
+                  roughly centred at X = 150 ranging from a minimum of X = 127.92 to a maximum of X = 173.85. It has an average value of X = 150.66 and also the smallest 
+                  variance of data with a standard deviation of 13.2 which can be visually seen by the dense spread in Figure \ref{fig:mode1_final}. Lastly, Cluster 3
+                  is roughly centred at X = 200 ranging from a minimum of X = 173.95 to a maximum of X = 259.27. It has an average value of X = 202.10 and a standard deviation of 
+                  17.52 which is close to the spread of Cluster 1 which can be visually seen in Figure \ref{fig:mode1_final}.
+
         \end{enumerate}
         
     \item Mode2.xlsx
@@ -94,15 +119,43 @@
                   
                   \begin{figure}[h!]
                     \centering
-                    \includegraphics[width=0.65\textwidth]{images/mode2_final.png}
+                    \includegraphics[width=0.61\textwidth]{images/mode2_final.png}
                     \caption{Results of the Gaussian Mixture Model using 3 Clusters on the Mode2.xlsx data}
                     \label{fig:mode2_final}
                   \end{figure}
 
                   In Figure \ref{fig:mode2_final}, the 3 clusters can be seen by the coloured data points shown on the 2D grid. In addition, the density contour of the GMM is also
-                  overlayed.
+                  overlayed. In addition to the results seen in Figure \ref{fig:mode2_final}, Table \ref{tab:mode2_summary} provides more details about each cluster:
 
-    
+                  \begin{table}[htbp]
+                  \centering
+                  \caption{Summary Statistics by Cluster}
+                  \label{tab:mode2_summary}
+                  \resizebox{\textwidth}{!}{%
+                  \begin{tabular}{c|r|rrrr|rrrr}
+                  \hline
+                  \textbf{Cluster} & \textbf{Count} 
+                  & \textbf{X1 Mean} & \textbf{X1 Std} & \textbf{X1 Min} & \textbf{X1 Max}
+                  & \textbf{X2 Mean} & \textbf{X2 Std} & \textbf{X2 Min} & \textbf{X2 Max} \\
+                  \hline
+                  1 & 465 & 99.64  & 19.90 & 44.04  & 161.49 & 200.53 & 19.63 & 154.59 & 259.27 \\
+                  2 & 603 & 99.61  & 19.27 & 44.65  & 150.63 & 100.46 & 19.85 & 30.94  & 150.51 \\
+                  3 & 432 & 152.11 & 18.14 & 113.49 & 206.71 & 149.21 & 19.18 & 90.18  & 197.15 \\
+                  \hline
+                  \end{tabular}%
+                  }
+                  \end{table}
+
+                  From both Figure \ref{fig:mode2_final} and Table \ref{tab:mode2_summary}, it can be seen that cluster 2 is the biggest, then cluster 1 and lastly cluster 3. Cluster 1
+                  is roughly centred at X = (100, 200) ranging from a minimum of X = (44.04, 154.59) to a maximum of X = (161.49, 259.27). It has an average value of X = (99.64, 200.53)
+                  with a standard deviation of (19.90, 19.63) which can be visually seen by the spread in Figure \ref{fig:mode2_final}. Next, Cluster 2 is 
+                  roughly centred at X = (100, 100) ranging from a minimum of X = (44.65, 30.94) to a maximum of X = (150.63, 150.51). It has an average value of X = (99.61, 100.46) 
+                  with a standard deviation similar to Cluster 1 with a value of (19.27, 100.46) which can be visually seen by the similar spread in Figure \ref{fig:mode2_final}. 
+                  Lastly, Cluster 3 is roughly centred at X = (150, 150) ranging from a minimum of X = (113.49, 90.18) to a maximum of X = (206.71, 197.15). It has an average value 
+                  of X = (152.11, 149.21) and a standard deviation of (18.14, 19.18) which is close to the spread of Cluster 1 and Cluster 2 which can be visually 
+                  seen in Figure \ref{fig:mode2_final}. In conclusion, the clusters are actually very similar in terms of variance with the main difference between the clusters
+                  being the actual count of each.
+
         \end{enumerate}
 
 \end{enumerate}
